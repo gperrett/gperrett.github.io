@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Exploring A/B Testing Mistakes: a simulation study</title>
+<meta name="description" content="A selection of posts about statistics and machine learning">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" href="https://gperrett.github.io/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://gperrett.github.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://gperrett.github.io/css/owl.carousel.css">
+<link rel="stylesheet" href="https://gperrett.github.io/css/owl.theme.css">
+
+
+  <link href="https://gperrett.github.io/css/style.sea.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://gperrett.github.io/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://gperrett.github.io/img/favicon.png">
+
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    <h1 class="sidebar-heading"><a href="https://gperrett.github.io/">George Perrett</a></h1>
+    
+      <p class="sidebar-p">I am an Applied Statistician based in New York City.</p>
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://gperrett.github.io/portfolio/">Posts</a></li>
+      
+        <li><a href="https://gperrett.github.io/contact/">Contact</a></li>
+      
+    </ul>
+    <p class="social">
+  
+  
+  
+  
+  
+  
+  <a href="https://www.linkedin.com/in/george-perrett-629272a8/" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://github.com/gperrett" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+</p>
+
+
+    <div class="copyright">
+      <p class="credit">
+        
+        Template by <a href="https://bootstrapious.com/free-templates" class="external">Bootstrapious.com</a>
+
+&amp; ported to Hugo by <a href="https://github.com/kishaningithub">Kishan B</a>
+
+      </p>
+    </div>
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs">
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left"> <i class="fa fa-align-left"> </i>Menu</button>
+  <h1 class="small-navbar-heading"><a href="https://gperrett.github.io/">George Perrett</a></h1>
+</div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>Exploring A/B Testing Mistakes: a simulation study</h1>
+         <p>A/B testing has become commonplace in the business and tech community. The method allows decision makers to see which version of a product performs better and enables leaders to make evidence-informed decisions. Companies, political campaigns and market research firms often utilize these tests to improve website design, products, and marketing strategies.</p>
+<p>Many organizations are already conducting A/B testing. When careful attention to statistical theory is not given, misguided A/B conclusions can in-sue. This white paper uses simulations to illustrate four common errors that can occur in A/B testing:</p>
+<ul>
+<li>Optional Stopping: running the same test until you see a positive result.</li>
+<li>Multiple Comparisons: if there is a negative result, try a different outcome.</li>
+<li>Insignificant “Significant” Results: ignoring effect size.</li>
+<li>Ignoring Interactions: Hidden patters can skew results.</li>
+</ul>
+<p>When careful attention is given to the statistical theory that informs A/B testing these problems can be avoided, however, when ignored misguided conclusion can be reached.</p>
+<h3 id="optional-stopping">Optional stopping</h3>
+<p>One choice during the A/B process is deciding when data collection should stop and testing should begin. Making quick decisions is valuable, and it is tempting to frequently test the results as data comes in. For instance, you could stop data collection after every 100 users and conduct your analysis; if there is no significant finding, data collection resumes and the process continues until a finding is discovered or the A/B test cycle ends.</p>
+<p>This is a problem. Following A/B test theory, there is a 5% chance that a positive result is a false positive, however, when the number of stops is increased the chance of a false positive also increases. This is illustrated in the following simulation which varies how often testing is conducted within a single A/B cycle. That data was simulated such that there is no difference between A and B, thus, every positive result is a false positive.</p>
+<p>The 5% false positive rate is only maintained when there is a single stopping and testing point. With as few as 5 stops the false positive rate rises to about 15%. Shown in the results from the simulation, the rate of false positives only continues to rise as optional stops to conduct a test increase. While frequent stopping to run an analysis may appear a viable means of delivering quick results, this approach drastically increases the risk of reaching a false conclusion.</p>
+<p><img src="/Plots/optional_stops.png" alt=""></p>
+<h3 id="the-multiple-comparison-problem">The Multiple Comparison Problem</h3>
+<p>A single A/B test cycle can be used to answer many questions: was there a difference in time spent between version A and version B? How about a difference in the number of clicks or likes?</p>
+<p>Testing multiple outcomes allows you to get the most out of a single cycle, but careful considerations need to be taken to avoid drastically increasing the false positive rate. This risk increases with each additional outcome and without implementing the correct adjustment, the probability of coming to a false conclusion substantially rises.</p>
+<p>The risk of multiple comparisons can be controlled by introducing the <a href="https://www.stat.berkeley.edu/~mgoldman/Section0402.pdf">Bonferroni correction</a>, which accounts for the additional false positive risk introduced with each additional outcome.</p>
+<p>To illustrate the implications of multiple comparisons without implementing the appropriate correction, another series of simulations was used. This time varying the numbers of comparisons replaced varying the number of optional stops. In this simulation, only a single stop was used but the effects of testing multiple different outcomes within a single A/B cycle was explored. Like before, there is no difference between version A and version B, and any positive result is a false positive.</p>
+<p>The plot below shows the consequences of conducting multiple comparisons without the correct adjustments. With as few as five comparisons, the risk of observing a single false positive has increased from 5% to 20%. However, when the appropriate correction is implemented, the false positive rate is held constant at 5%.</p>
+<p><img src="/Plots/multiple_comparisons.png" alt=""></p>
+<h3 id="insignificant-significant-results-large-sample-small-effect">Insignificant “Significant” Results: Large sample, small effect</h3>
+<p>When sample size is sufficiently large, relying on statistical significance to determine the importance of an effect can be misleading. Statistical significance is necessary to demonstrate that there is a difference between conditions, but provides no information on the size of that difference. This is illustrated in the plot below that shows results of three difference A/B tests. Because the data was simulated, it is known that one test has a 1% difference between groups, one has a 5% difference between groups and the remaining test has a 10% difference between groups. All three tests are statistically significant and have indistinguishable p-values. This illustration visualizes the contrasts between statistical significance and effect size.</p>
+<p><img src="/Plots/effect_comp.png" alt=""></p>
+<p>Statistical significance and effect size are difference constructs but there is an important relationship between them: as sample size increases increasingly small effects can be identified as statistically significant. This is illustrated by the results of the simulation study shown below. With a sample size of 5000 a 1% difference between two groups is consistently detected. When working with large samples, statistical significance can not be the only metric used to asses the results of an A/B test. Both statistical significance and effect size need to be considered.</p>
+<p><img src="/Plots/effect_size.png" alt=""></p>
+<p>The size of a meaningful effect is inherently subjective and varies between disciplines and contexts. In one case a 1% effect may justify any potential costs that come with scaling up a change discovered within the A/B test cycle. In other contexts, the costs associated with implementing a change may exceed the benefit of a 1% difference. While the threshold for a meaningful effect varies, the difference between p-values and effect size is consistent across all fields. When this distinction is ignored real but practically trivial differences can be misinterpreted.</p>
+<h3 id="ignoring-interactions">Ignoring Interactions</h3>
+<p>Randomly assigning participants to interact with either version A or version B is what allows A/B tests to make causal conclusions. Randomization, however, is not enough to uncover potential hidden patters that may exist within the results of a test cycle. When data is not visualized an inspected before conducting an analysis it is possible to overlook nuanced results and reach wrong conclusions.</p>
+<p>Imagine a digital news organization interested in comparing the effects of how changing its website impacts how many minutes users spend reading site content. Some readers use their computers while others primarily use their phones to visit the site. Due to randomization, the resulting A/B test has an equal number of computer and mobile users represented in group A and group B. Results from a simulated analysis of 500 users (250 per group) show there is no clear difference between conditions.</p>
+<p><img src="/Plots/no_interaction.png" alt=""></p>
+<p>While the above test would be methodologically sound the potential interaction between mediums (either computer or mobile) and experimental group (version A or version B) was never compared. Visualizing and testing the possibility that phone users may have a different experience than computer users reveals a very different result: version B increased site usage for phone users but actively decreased use for computer users suggesting the need for a tailored strategy. When proper data exploration is not conducted and relevant interactions are ignored, important findings can be missed.</p>
+<p><img src="/Plots/interaction.png" alt=""></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>A/B testing is a powerful tool that is frequently praised for its simplicity and ease of analysis. A/B tests, however, are not always simple. Misguided conclusions can be made when optional stopping, multiple comparisons, effect size, and possible interactions are ignored.</p>
+<p>In summary:</p>
+<ul>
+<li>
+<p>Frequently checking your data mid experiment (optional stoppage) and conducting multiple comparisons without correction drastically increases the rate of false positives.</p>
+</li>
+<li>
+<p>Statistical significance and meaningful difference are not the same.</p>
+</li>
+<li>
+<p>Hidden interactions within A/B tests need to be explored.</p>
+</li>
+</ul>
+<p>To see the completed code used to generate all simulations please refer to the analysis folder of the repository.</p>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://gperrett.github.io/js/jquery.min.js"></script>
+<script src="https://gperrett.github.io/js/bootstrap.min.js"></script>
+<script src="https://gperrett.github.io/js/jquery.cookie.js"> </script>
+<script src="https://gperrett.github.io/js/ekko-lightbox.js"></script>
+<script src="https://gperrett.github.io/js/jquery.scrollTo.min.js"></script>
+<script src="https://gperrett.github.io/js/masonry.pkgd.min.js"></script>
+<script src="https://gperrett.github.io/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://gperrett.github.io/js/owl.carousel.min.js"></script>
+<script src="https://gperrett.github.io/js/front.js"></script>
+
+
+
+</body>
+</html>
