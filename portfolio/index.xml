@@ -9,30 +9,39 @@
     <lastBuildDate>Sun, 06 Nov 2016 13:00:25 +0530</lastBuildDate><atom:link href="https://gperrett.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Exploring A/B Testing Mistakes: a simulation study</title>
-      <link>https://gperrett.github.io/portfolio/ab_website/</link>
+      <link>https://gperrett.github.io/portfolio/ab/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://gperrett.github.io/portfolio/ab_website/</guid>
+      <guid>https://gperrett.github.io/portfolio/ab/</guid>
       <description>A/B testing has become commonplace in the business and tech community. The method allows decision makers to see which version of a product performs better and enables leaders to make evidence-informed decisions. Companies, political campaigns and market research firms often utilize these tests to improve website design, products, and marketing strategies.
 Many organizations are already conducting A/B testing. When careful attention to statistical theory is not given, misguided A/B conclusions can in-sue.</description>
     </item>
     
     <item>
-      <title>Stonks only go up, but does Robinhood popularity follow?</title>
-      <link>https://gperrett.github.io/portfolio/write_about_stonks/</link>
+      <title>LASSO a better cup of coffee</title>
+      <link>https://gperrett.github.io/portfolio/lasso/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://gperrett.github.io/portfolio/write_about_stonks/</guid>
+      <guid>https://gperrett.github.io/portfolio/lasso/</guid>
+      <description>Feature Selection Choosing a coffee is fundamentally an exercise in prediction. Presumptive coffee drinkers are presented with an onslaught of variables describing a coffee&amp;rsquo;s origins, flavors, sent, texture and roasting processes. The combination of variables can rapidly increases to the point of becoming overwhelming. While to much information is overwhelming, when coffee drinkers do not have enough information they may choose a coffee that ends up being a disappointment. Put simply predicting whether a coffee will be good or bad is balance between considering to much information and not enough.</description>
+    </item>
+    
+    <item>
+      <title>Stonks only go up, but does Robinhood popularity follow?</title>
+      <link>https://gperrett.github.io/portfolio/stonks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://gperrett.github.io/portfolio/stonks/</guid>
       <description>The Rise of Robinhood Amid the economic uncertainty, increased time spent at home and $1,200 stimulus checks, the spring and summer of 2020 witnessed noticeable increases in retail stock and ETF trading. The majority of this rise has taken place on the popular trading app Robinhood, which allows retail traders to trade commission-free.
 The rise of retail trading, much of which has occurred on Robinhood, shook the market with seemingly irrational trades such as a large number of retail traders buying assets in Hertz after the company&amp;rsquo;s filed for bankruptcy.</description>
     </item>
     
     <item>
       <title>Working on the Weekend Like Usual</title>
-      <link>https://gperrett.github.io/portfolio/copyofpaper_master/</link>
+      <link>https://gperrett.github.io/portfolio/cluster/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://gperrett.github.io/portfolio/copyofpaper_master/</guid>
+      <guid>https://gperrett.github.io/portfolio/cluster/</guid>
       <description>What are your plans for the weekend? While it is easy to imagine that Americans spend their weekends differently, this is a challenging question to empirically validate.
 Describing the average American’s weekend plans is an easy exercise in descriptive statistics. On average, the typical American spends 10 hours sleeping, six hours socializing and relaxing, two hours on household activities and one hour eating and drinking. The picture of the average weekend is shown in the plot below.</description>
     </item>
